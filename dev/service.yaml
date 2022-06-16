@@ -3,6 +3,7 @@ kind: Service
 metadata:
   name: argo-play-svc
 spec:
+  type: NodePort
   selector:
     app: argo-play
   ports:
