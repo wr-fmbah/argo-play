@@ -4,8 +4,8 @@ kind: Deployment
 metadata:
   name: postgresql
   namespace: todo
-  annotations:
-    argocd.argoproj.io/sync-wave: "0"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "0"
 spec:
   selector:
     matchLabels:

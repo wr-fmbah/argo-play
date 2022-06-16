@@ -6,8 +6,8 @@ metadata:
     app.kubernetes.io/name: "todo-gitops"
     app.kubernetes.io/version: "1.0.0"
   name: "todo-gitops"
-  annotations:
-    argocd.argoproj.io/sync-wave: "2"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "2"
   namespace: todo
 spec:
   ports:

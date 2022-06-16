@@ -5,8 +5,8 @@ metadata:
     app: todo
   name: todo
   namespace: todo
-  annotations:
-    argocd.argoproj.io/sync-wave: "3"
+  # annotations:
+  #   argocd.argoproj.io/sync-wave: "3"
 spec:
   port:
     targetPort: 8080
