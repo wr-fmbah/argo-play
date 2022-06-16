@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/wr-fmbah/argo-play.git
     targetRevision: HEAD
-    path: dev
+    path: dev/nana-app/
   destination: 
     server: https://kubernetes.default.svc
     namespace: argo-play-ns
