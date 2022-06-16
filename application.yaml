@@ -1,3 +1,4 @@
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -12,6 +13,28 @@ spec:
   destination: 
     server: https://kubernetes.default.svc
     namespace: argo-play-ns
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
+
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: todo-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/wr-fmbah/argo-play.git
+    targetRevision: HEAD
+    path: dev/todo-app/
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: todo-app-ns
   syncPolicy:
     automated:
       selfHeal: true
