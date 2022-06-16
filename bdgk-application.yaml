@@ -1,0 +1,21 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: bgdk
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/wr-fmbah/argo-play.git
+    targetRevision: HEAD
+    path: dev/bgd-app/overlays/bgdk/
+  destination: 
+    server: https://kubernetes.default.svc
+    namespace: bgdk
+  syncPolicy:
+    automated:
+      selfHeal: true
+      prune: true
+    syncOptions:
+    - CreateNamespace=true
