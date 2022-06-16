@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolio
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+      - image: singharunk/webserver:v3
+        name: portfolio
+        volumeMounts:
+        - name: dummy
+          mountPath: /opt/password.txt
+      volumes:
+        - name: dummy
+          secret:
+             secretName: dummy

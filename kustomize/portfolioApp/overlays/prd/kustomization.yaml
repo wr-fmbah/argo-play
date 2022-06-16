@@ -1,0 +1,26 @@
+namePrefix: prd-
+
+commonLabels:
+  env: prd
+
+
+commonAnnotations:
+  typeofApp: htmlApp
+  rollout: value2
+
+bases:
+- ../../base
+
+patchesStrategicMerge:
+- deployment.yaml
+- service.yaml
+
+secretGenerator:
+- name: dummy
+  files: 
+  - password.txt
+
+namespace: kustomize-namespace
+
+generatorOptions:
+  disableNameSuffixHash: true
