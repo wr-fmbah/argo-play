@@ -1,19 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: staging-env-ingress
-  namespace: staging-env-ghostblog
+  name:  ghostblog-ing
+  namespace:  ghostblog-ns
   annotations:
     kubernetes.io/ingress.class: nginx
 spec:
   rules:
-  - host: "staging-env.brexit4u.com"
+  - host: "dev.ghostblog"
     http:
       paths:
       - pathType: Prefix
         path: "/"
         backend:
           service:
-            name: staging-env-ghostblog
+            name:  ghostblog-svc
             port:
               number: 80

@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: staging-env-ghostblog
-  namespace: staging-env-ghostblog
+  name:  ghostblog-svc
+  namespace:  ghostblog-ns
 spec:
   type: ClusterIP
   selector:
-    app: staging-env-ghostblog
+    app:  ghostblog-app
   ports:
   - protocol: TCP
     port: 80
