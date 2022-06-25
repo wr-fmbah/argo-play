@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name:  nginx-initcontainer-sample
+  namespace:  nginx-initcontainer-sample
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+  - host: "dev.nginxinit"
+    http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name:  nginx-webapp
+            port:
+              number: 80
